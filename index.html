@@ -935,21 +935,21 @@
                 <div class="d-flex flex-wrap gap-2">
                   <a
                     class="btn my-btn-secondary"
-                    href="https://github.com/libnyanpasu/clash-nyanpasu/releases/tag/pre-release"
+                    href="https://github.com/pluralplay/FlClashX/releases/latest"
                     role="button"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <span class="fw-semibold" x-text="$t('nyanpasu')"></span>
+                    <span class="fw-semibold" x-text="$t('flclash')"></span>
                   </a>
                   <a
                     class="btn my-btn-secondary"
-                    href="https://github.com/clash-verge-rev/clash-verge-rev/releases/latest"
+                    href="https://github.com/coolcoala/clash-verge-rev-lite/releases/latest"
                     role="button"
                     rel="noopener noreferrer"
                     target="_blank"
                   >
-                    <span class="fw-semibold" x-text="$t('verge')"></span>
+                    <span class="fw-semibold" x-text="$t('koala')"></span>
                   </a>
                 </div>
               </div>
@@ -961,15 +961,30 @@
                   class="my-text-heading fw-semibold"
                   x-text="$t('guideContent.pc.second.title')"
                 ></h5>
-                <p class="my-text-content" x-html="$t('guideContent.pc.second.text')"></p>
-                <a
-                  class="btn my-btn-primary fw-semibold"
-                  id="sub-url-pc"
-                  role="button"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  x-text="$t('addSubscription')"
-                ></a>
+                <p
+                  class="my-text-content"
+                  x-html="$t('guideContent.pc.second.text-1')"
+                ></p>
+                <p
+                  class="my-text-content"
+                  x-html="$t('guideContent.pc.second.text-2')"
+                ></p>
+                <div class="d-flex flex-wrap gap-2" x-data="copyClashLink">
+                  <a
+                    class="btn my-btn-primary fw-semibold"
+                    id="sub-url-pc"
+                    role="button"
+                    rel="noopener noreferrer"
+                    target="_blank"
+                    x-text="$t('addSubscription')"
+                  ></a>
+                  <button
+                    class="btn my-btn-neutral"
+                    @click="copyClashToClipboard"
+                    :disabled="isClashLinkDisabled"
+                    x-text="isClashLinkDisabled ? $t('copied') : $t('copyClashLink')"
+                  ></button>
+                </div>
               </div>
             </div>
             <div class="col">
@@ -980,12 +995,13 @@
                   x-text="$t('guideContent.pc.third.title')"
                 ></h5>
                 <p
-                  class="my-text-content mb-0"
-                  x-html="$t('guideContent.pc.third.nyanpasuguide')"
+                  class="my-text-content"
+                  x-html="$t('guideContent.pc.third.koalaguide')"
                 ></p>
+                <p class="my-text-content" x-html="$t('guideContent.pc.third.text')"></p>
                 <p
-                  class="my-text-content mb-0"
-                  x-html="$t('guideContent.pc.third.text')"
+                  class="my-text-content"
+                  x-html="$t('guideContent.pc.third.vpnNotice')"
                 ></p>
               </div>
             </div>
@@ -1039,14 +1055,15 @@
           getLinkModalSubtitle:
             "Simple subscription addition in any client. Another option: copy the link below and paste it into the client",
           copyLink: "Copy link",
+          copyClashLink: "Copy Clash link",
           copied: "Copied",
           guide: "Guide",
           pc: "PC",
           openInApp: "Open in {app}",
           downloadGitHub: "Download from GitHub",
-          addSubscription: "Add subscription",
-          nyanpasu: "Clash Nyanpasu",
-          verge: "Clash Verge Rev",
+          addSubscription: "Add Sub",
+          flclash: "FlClashX",
+          koala: "Koala Clash",
           guideContent: {
             pc: {
               first: {
@@ -1055,12 +1072,15 @@
               },
               second: {
                 title: "Add the subscription",
-                text: `Click the button below — the application will open, and the subscription will be added automatically. If this doesn't happen (Profiles section is empty), close the app and try again, or manually add the subscription in the Profiles section by entering the URL in the Profile URL field (copy the link above) and clicking the Import button.`,
+                "text-1": `Click the button below — the application will open, and the subscription will be added automatically.`,
+                "text-2": `If this doesn't happen, close the app and try again, or manually add the subscription in the Profiles section by copying URL with "Copy Clash link" button below and clicking the Import button. This is the case for FlClashX client.`,
               },
               third: {
                 title: "Connect and enjoy",
-                text: `· Clash Verge Rev: In the app menu, go to Settings, and in the System Settings section, switch the Tun parameter to Enabled.`,
-                nyanpasuguide: `· Clash Nyanpasu: Go to the Dashboard and enable Tun mode (you must first run the program with administrator rights)`,
+                text: `· FlClashX: In the app menu, go to Settings -> Basic configuration -> Network -> switch the Tun parameter to Enabled if not already.`,
+                koalaguide: `· Koala Clash: Go to Settings and enable TUN mode in the Main Switch (you must first run the program with administrator rights)`,
+                vpnNotice:
+                  "Both clients have VPN mode support. This is especially useful when certain apps or games doesn't support System Proxy settings",
               },
             },
             android: {
@@ -1114,14 +1134,15 @@
           getLinkModalSubtitle:
             "Простое добавление подписки в любой клиент. Есть и другой вариант: скопируй ссылку ниже и вставь в клиент",
           copyLink: "Скопировать ссылку",
+          copyClashLink: "Копировать Clash ссылку",
           copied: "Скопировано",
           guide: "Инструкция",
           pc: "ПК",
           openInApp: "Открыть в {app}",
           downloadGitHub: "Скачать с GitHub",
           addSubscription: "Добавить подписку",
-          nyanpasu: "Clash Nyanpasu",
-          verge: "Clash Verge Rev",
+          flclash: "FlClashX",
+          koala: "Koala Clash",
           guideContent: {
             pc: {
               first: {
@@ -1131,14 +1152,15 @@
               },
               second: {
                 title: "Добавь подписку",
-                text: `Нажми кнопку ниже — программа откроется, и подписка
-                добавится автоматически.<br>Если этого не произошло (раздел "Профили" пустой), закрой программу
-                и попробуй снова или добавь подписку вручную через раздел "Профили": в строке "URL профиля" укажи ссылку, скопировав ее выше, и нажми кнопку импорта.`,
+                "text-1": `Нажми на кнопку ниже — откроется приложение, и подписка будет добавлена ​​автоматически.`,
+                "text-2": `Если это не поможет, закрой приложение и попробуй снова, или добавь подписку вручную в разделе «Профили», скопировав URL-адрес с помощью кнопки «Копировать Clash ссылку» ниже и нажав кнопку «Импорт». Такое бывает с FlClashX.`,
               },
               third: {
                 title: "Подключись и пользуйся",
-                text: `• <b>Clash Verge Rev</b>: В меню приложения перейди в раздел "Настройки" и в пункте "Настройки системы" включи параметр <b>Tun</b>.`,
-                nyanpasuguide: `• <b>Clash Nyanpasu</b>: Перейди на главную страницу и включи режим <b>Tun</b>. Предварительно требуется запустить программу с правами адмнистратора.`,
+                text: `· FlClashX: В меню приложения перейди в Настройки -> Основные параметры -> Сеть -> переключи TUN в положение ВКЛ, если ещё не.`,
+                koalaguide: `· Koala Clash: Зайди в Настройки и включи режим TUN на главном переключателе (предварительно необходимо запустить программу с правами администратора).`,
+                vpnNotice:
+                  "Оба клиента поддерживают режим VPN. Это особенно полезно, когда некоторые приложения или игры не поддерживают настройки системного прокси.",
               },
             },
             android: {
@@ -1244,6 +1266,17 @@
             this.isDisabled = true;
             setTimeout(() => {
               this.isDisabled = false;
+            }, 3000);
+          },
+        }));
+
+        Alpine.data("copyClashLink", () => ({
+          isClashLinkDisabled: false,
+          copyClashToClipboard() {
+            navigator.clipboard.writeText(`${SUB_URL}/clash-meta`);
+            this.isClashLinkDisabled = true;
+            setTimeout(() => {
+              this.isClashLinkDisabled = false;
             }, 3000);
           },
         }));
