@@ -869,7 +869,7 @@
                 <p class="my-text-content" x-html="$t('guideContent.ios.first.text')"></p>
                 <a
                   class="btn my-btn-secondary"
-                  href="https://apps.apple.com/app/sing-box-vt/id6673731168"
+                  href="https://apps.apple.com/us/app/rabbithole-vpn-client/id6683309629"
                   role="button"
                   rel="noopener noreferrer"
                   target="_blank"
@@ -917,7 +917,6 @@
             </div>
           </div>
         </div>
-        TODO to add block about clients in https://docs.rw/docs/clients/
         <div
           id="tab-pc"
           class="tab-pane my-tab-pane fade"
@@ -1009,6 +1008,29 @@
           </div>
         </div>
       </div>
+      <div class="my-block-big mt-5 pt-4">
+        <div class="d-flex flex-wrap align-items-start gap-3">
+          <div class="flex-grow-1">
+            <h5
+              class="my-text-heading fw-bold mb-3"
+              x-text="$t('clientsInfo.title')"
+            ></h5>
+            <p class="my-text-content mb-3" x-html="$t('clientsInfo.description')"></p>
+            <p
+              class="my-text-content mb-3"
+              x-html="$t('clientsInfo.mihomoAdvantage')"
+            ></p>
+            <a
+              class="btn my-btn-primary fw-semibold"
+              href="https://docs.rw/docs/clients/"
+              role="button"
+              rel="noopener noreferrer"
+              target="_blank"
+              x-text="$t('clientsInfo.browseClients')"
+            ></a>
+          </div>
+        </div>
+      </div>
     </div>
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
@@ -1028,7 +1050,7 @@
       const SUB_URL_SCHEMES = {
         pc: `clash://install-config?url={{ user.subscription_url }}/clash-meta&name={{ user.username }}`,
         android: `clash://install-config?url={{ user.subscription_url }}/clash-meta&name={{ user.username }}`,
-        ios: `clash://install-config?url={{ user.subscription_url }}/clash-meta&name={{ user.username }}`,
+        ios: `{{ user.subscription_url }}/clash-meta`,
       };
       // Default locale used to display content if
       // the user's locale is not specified.
@@ -1065,6 +1087,14 @@
           addSubscription: "Add Sub",
           flclash: "FlClashX",
           koala: "Koala Clash",
+          clientsInfo: {
+            title: "More Clients Available",
+            description:
+              "You are not limited to the clients above - tap the button below to see the full list of clients. Mihomo-based clients are recommended.",
+            mihomoAdvantage:
+              "<b>PRO TIP:</b> The 'Add Subscription' button provides settings not only for proxy but also for routing. For example, connections to Russian sites will go directly, bypassing the proxy.",
+            browseClients: "Browse All Clients",
+          },
           guideContent: {
             pc: {
               first: {
@@ -1100,16 +1130,16 @@
             },
             ios: {
               first: {
-                title: "Install and Open sing-box VT",
-                text: `Open the App Store page and install the app. Launch the app, and when prompted to allow VPN configuration additions, tap 'Allow' and enter your passcode.`,
+                title: "Install and open Rabbit Hole",
+                text: `Open the App Store page, install Rabbit Hole, and launch it. When iOS asks to add VPN configurations, tap 'Allow' and confirm with Face ID, Touch ID, or your passcode.`,
               },
               second: {
-                title: "Add the subscription",
-                text: `"Click the button below, and in the window that appears, click 'Open' — the app will open. Confirm the import by first clicking the Import button, then the Create button.`,
+                title: "Add the configuration",
+                text: `Tap the button below to open your subscription URL. In Rabbit Hole, go to the Configs screen, tap the '+' button, choose URL (or Clipboard), paste the subscription link, and save.`,
               },
               third: {
                 title: "Connect and enjoy",
-                text: `On the Dashboard main page, click the Enabled button to connect to the VPN. Enjoy :)`,
+                text: `Return to the Configs screen, select the imported configuration group, and use the connection button to start VPN. You can switch proxies from the same screen.`,
               },
             },
           },
@@ -1144,6 +1174,14 @@
           addSubscription: "Добавить подписку",
           flclash: "FlClashX",
           koala: "Koala Clash",
+          clientsInfo: {
+            title: "Доступно больше клиентов",
+            description:
+              "Ты не ограничен клиентами выше - нажми кнопку ниже, чтобы увидеть весь список клиентов. Рекомендуются клиенты на основе Mihomo.",
+            mihomoAdvantage:
+              "<b>PRO TIP:</b> По кнопке «Добавить подписку» отдаются настройки не только прокси, но и маршрутизации. Например, соединения с ру-сайтами будут идти напрямую, минуя прокси.",
+            browseClients: "Посмотреть все клиенты",
+          },
           guideContent: {
             pc: {
               first: {
@@ -1180,18 +1218,16 @@
             },
             ios: {
               first: {
-                title: "Установи и открой sing-box VT",
-                text: `Открой страницу в <b>App Store</b> и установи приложение.
-                Запусти приложение, в окне разрешения на добавление конфигураций VPN нажми <b>«Разрешить»</b> и введи свой <b>код-пароль</b>.`,
+                title: "Установи и открой Rabbit Hole",
+                text: `Открой страницу в <b>App Store</b>, установи Rabbit Hole и запусти приложение. Когда iOS попросит разрешение на добавление VPN-конфигураций, нажми <b>«Разрешить»</b> и подтверди через Face ID, Touch ID или код-пароль.`,
               },
               second: {
-                title: "Добавь подписку",
-                text: `Нажми на кнопку ниже и в появившемся окне нажми <b>«Открыть»</b>
-                — откроется приложение. Подтверди импорт, сначала нажав кнопку <b>"Import"</b>, а затем <b>"Create"</b>.`,
+                title: "Добавь конфигурацию",
+                text: `Нажми кнопку ниже, чтобы открыть URL подписки. В Rabbit Hole перейди на экран <b>Configs</b>, нажми <b>«+»</b>, выбери <b>URL</b> (или <b>Clipboard</b>), вставь ссылку подписки и сохрани.`,
               },
               third: {
                 title: "Подключись и пользуйся",
-                text: `На <b>главной странице Dashboard</b> нажми кнопку <b>Enabled</b> для подключения к VPN.`,
+                text: `Вернись на экран <b>Configs</b>, выбери импортированную группу конфигураций и запусти VPN кнопкой подключения. Переключать прокси можно на этом же экране.`,
               },
             },
           },
