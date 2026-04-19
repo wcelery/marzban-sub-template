@@ -793,7 +793,7 @@
           aria-labelledby="btn-guide-android-tab"
           role="tabpanel"
         >
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+          <div class="row row-cols-1 row-cols-sm-2 g-3">
             <div class="col">
               <div class="my-block-big h-100">
                 <span class="my-step-counter mb-1"></span>
@@ -837,6 +837,8 @@
                 ></a>
               </div>
             </div>
+          </div>
+          <div class="row g-3 mt-0">
             <div class="col">
               <div class="my-block-big h-100">
                 <span class="my-step-counter mb-1"></span>
@@ -845,9 +847,16 @@
                   x-text="$t('guideContent.android.third.title')"
                 ></h5>
                 <p
-                  class="my-text-content mb-0"
+                  class="my-text-content mb-3"
                   x-html="$t('guideContent.android.third.text')"
                 ></p>
+                <div class="alert alert-info mb-0">
+                  <h6
+                    class="alert-heading fw-semibold"
+                    x-text="$t('guideContent.outboundModeInfo.title')"
+                  ></h6>
+                  <p class="mb-0" x-text="$t('guideContent.outboundModeInfo.text')"></p>
+                </div>
               </div>
             </div>
           </div>
@@ -858,7 +867,7 @@
           aria-labelledby="btn-guide-ios-tab"
           role="tabpanel"
         >
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+          <div class="row row-cols-1 row-cols-sm-2 g-3">
             <div class="col">
               <div class="my-block-big h-100">
                 <span class="my-step-counter mb-1"></span>
@@ -902,6 +911,8 @@
                 ></a>
               </div>
             </div>
+          </div>
+          <div class="row g-3 mt-0">
             <div class="col">
               <div class="my-block-big h-100">
                 <span class="my-step-counter mb-1"></span>
@@ -910,9 +921,16 @@
                   x-text="$t('guideContent.ios.third.title')"
                 ></h5>
                 <p
-                  class="my-text-content mb-0"
+                  class="my-text-content mb-3"
                   x-html="$t('guideContent.ios.third.text')"
                 ></p>
+                <div class="alert alert-info mb-0">
+                  <h6
+                    class="alert-heading fw-semibold"
+                    x-text="$t('guideContent.outboundModeInfo.title')"
+                  ></h6>
+                  <p class="mb-0" x-text="$t('guideContent.outboundModeInfo.text')"></p>
+                </div>
               </div>
             </div>
           </div>
@@ -923,7 +941,7 @@
           aria-labelledby="btn-guide-pc-tab"
           role="tabpanel"
         >
-          <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-3">
+          <div class="row row-cols-1 row-cols-sm-2 g-3">
             <div class="col">
               <div class="my-block-big h-100">
                 <span class="my-step-counter mb-1"></span>
@@ -987,6 +1005,8 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="row g-3 mt-0">
             <div class="col">
               <div class="my-block-big h-100">
                 <span class="my-step-counter mb-1"></span>
@@ -1000,9 +1020,16 @@
                 ></p>
                 <p class="my-text-content" x-html="$t('guideContent.pc.third.text')"></p>
                 <p
-                  class="my-text-content"
+                  class="my-text-content mb-3"
                   x-html="$t('guideContent.pc.third.vpnNotice')"
                 ></p>
+                <div class="alert alert-info mb-0">
+                  <h6
+                    class="alert-heading fw-semibold"
+                    x-text="$t('guideContent.outboundModeInfo.title')"
+                  ></h6>
+                  <p class="mb-0" x-text="$t('guideContent.outboundModeInfo.text')"></p>
+                </div>
               </div>
             </div>
           </div>
@@ -1142,6 +1169,10 @@
                 text: `Return to the Configs screen, select the imported configuration group, and use the connection button to start VPN. You can switch proxies from the same screen.`,
               },
             },
+            outboundModeInfo: {
+              title: "Outbound Mode",
+              text: "Keep the Outbound mode set to 'By rule' — it automatically applies the routing rules defined in your profile. If you need to route all traffic through the proxy for some reason, switch it to 'Global'.",
+            },
           },
         },
         ru: {
@@ -1229,6 +1260,10 @@
                 title: "Подключись и пользуйся",
                 text: `Вернись на экран <b>Configs</b>, выбери импортированную группу конфигураций и запусти VPN кнопкой подключения. Переключать прокси можно на этом же экране.`,
               },
+            },
+            outboundModeInfo: {
+              title: "Режим исходящего трафика",
+              text: "Держи режим исходящего трафика (Outbound mode) на 'By rule' - он автоматически применяет правила маршрутизации, определённые в твоём профиле. Если по каким-то причинам тебе нужно пустить весь трафик через прокси , переключи на 'Global'.",
             },
           },
         },
